@@ -79,7 +79,7 @@ bool FSensibleSourceCodeAccessor::OpenFileAtLine(const FString& FullPath, int32 
     FString Editor = FString(TEXT("/usr/bin/sensible-editor"));
 
     // Add this to handle spaces in path names.
-    const FString NewFullPath = FString::Printf(TEXT("\"%s+%d\""), *FullPath, LineNumber);
+    const FString NewFullPath = FString::Printf(TEXT("+%d \"%s\""), LineNumber, *FullPath);
 
     if(FLinuxPlatformProcess::CreateProc(*Editor,
                                          *NewFullPath,
